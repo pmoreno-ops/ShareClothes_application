@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+:host {
+  --ion-background-color: #ffffff;
+}
+
+.page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.phone-safe-area {
+  justify-self: center;
+  width: 360px;
+  max-width: calc(100% - 32px);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 18px 22px 28px 22px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+/* ✅ Ajustes precisos solicitados */
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0; /* antes: 12px */
+}
+
+.logo-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 6px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-underline {
+  width: 72px;
+  height: 3px;
+  background: rgba(255,106,0,0.18);
+  border-radius: 2px;
+  margin-top: 6px;
+  margin-bottom: 10px; /* conecta visualmente con el form */
+}
+
+/* Form */
+.form {
+  margin-top: 6px; /* antes: 8px */
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 6px;
+  margin-left: 4px;
+}
+
+.field {
+  height: 38px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid #FF6A00;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.field::placeholder {
+  color: #D6D6D6;
+  font-weight: 500;
+}
+
+.terms-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 18px 0;
+}
+
+.checkbox-wrap {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox-wrap input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  background: #111;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkbox-wrap input[type="checkbox"]:checked + .fake-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.fake-check {
+  display: none;
+}
+
+.terms-text {
+  font-size: 13px;
+  color: #000;
+}
+
+.register-btn {
+  height: 44px;
+  border-radius: 10px;
+  background: #FF6A00;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 6px;
+  width: 100%;
+  box-shadow: none;
+  cursor: pointer;
+}

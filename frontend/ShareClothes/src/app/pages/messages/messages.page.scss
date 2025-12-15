@@ -1,0 +1,92 @@
+ion-toolbar {
+  --background: #fa5903;
+  --color: #d8d6d6;
+}
+
+ion-title {
+  font-weight: bold;
+}
+
+ion-button ion-icon {
+  font-size: 1.2rem;
+}
+
+
+.mensajes-content {
+  --background: #f4f4f4;
+  padding: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform .1s ease;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff8c42; /* tu naranja */
+}
+
+.chat-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+
+  h3 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .hora {
+    font-size: 13px;
+    color: #777;
+  }
+}
+
+.mensaje-previo {
+  font-size: 14px;
+  color: #666;
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contador {
+  background: #ff8c42;
+  color: white;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  min-width: 24px;
+  text-align: center;
+}
