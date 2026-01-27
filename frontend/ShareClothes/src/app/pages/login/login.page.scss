@@ -1,0 +1,94 @@
+.login-page {
+  --background: #fffaf6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+.logo-section {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+
+  .logo-circle {
+    width: 350px;
+    height: 350px;
+    background: #fafafa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+
+    img {
+      width: 350px;
+      height: 350px;
+      object-fit: contain;
+      background: transparent;
+    }
+  }
+}
+
+.form {
+  width: 90%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.input-item {
+  color: #ff6200;
+  border-radius: 8px;
+  margin-bottom: 12px;
+
+  ion-label {
+    color: #ff6200;
+    font-weight: 500;
+  }
+
+  ion-input {
+    color: #ffffff;
+  }
+}
+
+.remember-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 16px 4px;
+
+  ion-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #ff6200;
+  }
+
+  ion-checkbox {
+    --border-color: #ff6200;
+    --checkbox-background-checked: #ff6200;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-btn {
+  --background: #ff6200;
+  --color: #ffffff;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px rgba(255, 123, 0, 0.3);
+}
+
+.register-btn {
+  --background: rgb(248, 199, 169);
+  --color: #ff6200;
+  --border-color: #ff6200;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}

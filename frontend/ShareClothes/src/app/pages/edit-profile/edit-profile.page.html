@@ -1,0 +1,59 @@
+<ion-content class="profile-page">
+  <div class="profile-top">
+    <div class="avatar">
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+
+    <div class="profile-info">
+      <h2>{{ profile.name }}</h2>
+      <p class="email">{{ profile.email }}</p>
+      <p class="location">{{ profile.location }}</p>
+    </div>
+
+    <div class="action-buttons">
+      <ion-button (click)="goToExchange()" size="small" style="--background: #fa3d03; --background-hover: #ff812a; --background-activated: #e86100; color: #fff;">Intercambios</ion-button>
+      <ion-button (click)="editProfile()" size="small" style="--background: #ff6d00; --background-hover: #ff812a; --background-activated: #e86100; color: #fff;">Editar Perfil</ion-button>
+      <ion-button (click)="goToWardrobe()" size="small" style="--background: #fa5903; --background-hover: #ff812a; --background-activated: #e86100; color: #fff;">Mi Guardarropa</ion-button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="number">{{ stats.following }}</div>
+      <div class="label">seguidos</div>
+    </div>
+
+    <div class="stat">
+      <div class="number">{{ stats.likes }}</div>
+      <div class="label">seguidores</div>
+    </div>
+
+    <div class="stat">
+      <div class="number">{{ stats.items }}</div>
+      <div class="label">prendas</div>
+    </div>
+  </div>
+
+  <div class="recent-title">Recientemente añadido</div>
+
+  <ion-grid class="gallery">
+    <ion-row class="profile-gallery">
+      <ion-col size="auto" *ngFor="let img of images; let i = index">
+        <div class="thumb-wrapper">
+          <ng-container *ngIf="img; else addPhoto">
+            <img [src]="img" alt="imagen" />
+          </ng-container>
+          <ng-template #addPhoto>
+            <div class="add-thumb">
+              <ion-icon name="add-outline"></ion-icon>
+            </div>
+          </ng-template>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="bottom-spacer"></div>
+</ion-content>
+
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

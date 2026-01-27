@@ -1,0 +1,34 @@
+<app-api-header-nav-bar></app-api-header-nav-bar>
+
+<ion-content class="ion-padding">
+
+  <ion-grid class="product-grid">
+    <ion-row>
+      <ion-col
+        size="4"
+        class="product-item"
+        *ngFor="let item of items"
+        (click)="openProductDetail(item)">
+
+        <!-- Carrusel horizontal con flechas -->
+        <div class="image-container">
+          <div class="carousel-wrapper">
+            <button class="arrow left" (click)="prevImage(item, $event)">&#8249;</button>
+            <img [src]="item.imgs[item.currentImage]" [alt]="item.title">
+            <button class="arrow right" (click)="nextImage(item, $event)">&#8250;</button>
+          </div>
+        </div>
+
+        <!-- Icono de me gusta y nombre -->
+        <div class="product-header">
+          <p class="product-name">{{ item.title }}</p>
+        </div>
+
+        <!-- Información del producto -->
+        <p class="product-time">Añadido hace {{ item.time }}.</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

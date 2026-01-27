@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+:host {
+  --ion-background-color: #ffffff;
+}
+
+.page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  padding: 0;
+}
+
+.phone-safe-area {
+  width: 360px;
+  max-width: calc(100% - 32px);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 20px 22px 28px 22px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* ---- Imagen de perfil --- */
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.logo-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #FF6A00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-underline {
+  width: 72px;
+  height: 3px;
+  background: rgba(255,106,0,0.18);
+  border-radius: 2px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+/* -------- FORM -------- */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.field-first-label{
+  font-size: 13px;
+  color: #fa3d03;
+  margin-bottom: 6px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.field-label {
+  font-size: 13px;
+  color: #070707;
+  margin-bottom: 6px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.field {
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid #FF6A00;
+  background: #ffffff;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.field::placeholder {
+  color: #D6D6D6;
+  font-weight: 500;
+}
+
+/* ---- Sección para cambiar imagen ---- */
+.image-section {
+  margin: 12px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-input {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  input[type="file"] {
+    margin-top: 6px;
+    font-size: 13px;
+    align-self: center;
+  }
+}
+
+/* -------- Botón -------- */
+.save-btn {
+  height: 44px;
+  border-radius: 10px;
+  background: #FF6A00;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 6px;
+  width: 100%;
+  cursor: pointer;
+}

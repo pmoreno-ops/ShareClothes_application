@@ -1,0 +1,36 @@
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Título</ion-label>
+    <ion-input [(ngModel)]="product.titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="product.descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Categoría</ion-label>
+    <ion-input [(ngModel)]="product.categoria"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input [(ngModel)]="product.marca"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Imagen URL</ion-label>
+    <ion-input [(ngModel)]="product.imagenPrincipal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Talla</ion-label>
+    <ion-input [(ngModel)]="product.talla"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="crearProducto()">Crear Producto</ion-button>
+  <ion-button expand="full" fill="outline" color="medium" (click)="cancelar()">Cancelar</ion-button>
+
+  <app-api-footer-nav-bar></app-api-footer-nav-bar>
+</ion-content>

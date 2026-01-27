@@ -1,0 +1,37 @@
+ion-header ion-toolbar {
+  --background: var(--ion-color-light-bg);
+  --border-color: transparent;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.toolbar-icon {
+  font-size: 26px;
+  color: var(--ion-color-primary-orange);
+  padding-inline: 8px;
+}
+
+.toolbar-icon.orange {
+  color: var(--ion-color-primary-orange);
+}
+
+.custom-searchbar {
+  --background: #ffffff;
+  --border-radius: 20px;
+  padding: 0 5px;
+  color: var(--ion-color-primary-orange);
+}
+
+.custom-searchbar .searchbar-input-container {
+  height: 40px;
+}
+
+.custom-searchbar input {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.custom-searchbar .searchbar-input.sc-ion-searchbar-md,
+.custom-searchbar .searchbar-input.sc-ion-searchbar-ios {
+  padding-inline-start: 15px !important;
+}

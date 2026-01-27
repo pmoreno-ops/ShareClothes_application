@@ -1,0 +1,59 @@
+<ion-content class="page-content" [fullscreen]="true">
+  <div class="phone-safe-area">
+
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img [src]="previewImage || 'assets/img/user-placeholder.png'" alt="Imagen de perfil">
+      </div>
+
+      <div class="brand">
+        <div class="brand-underline"></div>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <form class="form" (ngSubmit)="guardarUsuario()">
+
+      <!-- Selector de imagen -->
+      <div class="image-section">
+        <div class="image-input">
+          <label class="field-first-label">Cambiar imagen de perfil</label>
+          <input type="file" accept="image/*" (change)="cargarImagen($event)">
+        </div>
+      </div>
+
+      <!-- Nombre -->
+      <label class="field-label">Nombre</label>
+      <input class="field" type="text"
+             [(ngModel)]="form.nombre"
+             name="nombre"
+             placeholder="Tu nombre">
+
+      <!-- Apellidos -->
+      <label class="field-label">Apellidos</label>
+      <input class="field" type="text"
+             [(ngModel)]="form.apellidos"
+             name="apellidos"
+             placeholder="Tus apellidos">
+
+      <!-- Correo -->
+      <label class="field-label">Correo Electrónico</label>
+      <input class="field" type="email"
+             [(ngModel)]="form.correo"
+             name="correo"
+             placeholder="ejemplo@correo.com">
+
+      <!-- Localización -->
+      <label class="field-label">Localización</label>
+      <input class="field" type="text"
+             [(ngModel)]="form.localizacion"
+             name="localizacion"
+             placeholder="Ciudad / Región">
+
+      <!-- Botón -->
+      <button class="save-btn" type="submit" (click)="guardarUsuario()">Guardar Cambios</button>
+
+    </form>
+
+  </div>
+</ion-content>

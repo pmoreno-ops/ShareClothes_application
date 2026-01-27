@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+  <div class="image-header">
+    <img src="assets/img/pantalon-japan.jpg" alt="Producto" />
+    <div class="title-overlay">
+      <ion-input [(ngModel)]="product.titulo" placeholder="Título del producto"></ion-input>
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="product.descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Categoria</ion-label>
+    <ion-input [(ngModel)]="product.categoria"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input [(ngModel)]="product.marca"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Talla</ion-label>
+    <ion-input [(ngModel)]="product.talla"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Color</ion-label>
+    <ion-input [(ngModel)]="product.color"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="updateProduct()">
+    Guardar Cambios
+  </ion-button>
+
+  <app-api-footer-nav-bar></app-api-footer-nav-bar>
+</ion-content>

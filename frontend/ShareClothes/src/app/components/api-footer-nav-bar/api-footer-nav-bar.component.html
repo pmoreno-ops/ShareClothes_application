@@ -1,0 +1,32 @@
+<ion-footer class="ion-no-border">
+  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+
+    <ion-tab-button (click)="goToMainMenu()">
+      <ion-icon name="compass-outline"></ion-icon>
+      <ion-label>Explore</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button  (click)="goToStyleList()">
+      <ion-icon name="shirt-outline"></ion-icon>
+      <ion-label>Style</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="add" (click)="goToAdd()">
+      <div class="add-button-plus">
+        <ion-icon name="add-outline"></ion-icon>
+      </div>
+      <ion-label>Add</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToSaved()">
+      <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-label>Saved</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="messages" (click)="goToMessages()">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <ion-label>Messages</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-footer>

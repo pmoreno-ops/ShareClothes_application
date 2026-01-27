@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border chat-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <div class="title-container">
+        <ion-avatar class="header-avatar">
+          <img src="assets/img/perfil-usuario.jpg" />
+        </ion-avatar>
+        <div class="title-texts">
+          <div class="name">Julia Ahki</div>
+          <div class="subtitle">Ayer</div>
+        </div>
+      </div>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-content" #content>
+  <div *ngFor="let msg of messages" class="message-container" [ngClass]="msg.from">
+
+    <ion-avatar *ngIf="msg.from === 'other'" class="message-avatar">
+      <img src="assets/img/perfil-usuario.jpg" />
+    </ion-avatar>
+
+    <div class="message-bubble">
+      <ng-container [ngSwitch]="msg.type">
+        <p *ngSwitchCase="'text'">{{ msg.text }}</p>
+
+        <div *ngSwitchCase="'image'">
+          <img [src]="msg.image" class="img-msg" />
+          <p>{{ msg.text }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="footer-fixed">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-container">
+
+      <ion-button class="emoji-btn" fill="clear">
+        <ion-icon name="happy-outline"></ion-icon>
+      </ion-button>
+
+      <ion-input
+        class="input"
+        placeholder="Message"
+        [(ngModel)]="newMessage"
+        (keydown.enter)="sendMessage()"
+        type="text"
+      ></ion-input>
+
+      <ion-button class="send-btn" (click)="sendMessage()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+

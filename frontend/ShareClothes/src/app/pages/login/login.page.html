@@ -1,0 +1,39 @@
+<ion-content class="login-page">
+  <div class="logo-section">
+    <div class="logo-circle">
+      <img src="assets/img/logo.png" alt="ShareClothEs logo" />
+    </div>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form">
+    <ion-item lines="outline" class="input-item">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        type="email"
+        formControlName="email"
+        placeholder="Value"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="outline" class="input-item">
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        placeholder="Value"
+      ></ion-input>
+    </ion-item>
+
+    <div class="remember-section">
+      <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+      <ion-label>Recordarme</ion-label>
+    </div>
+
+    <div class="buttons">
+      <ion-button expand="block" type="submit" class="login-btn">Login</ion-button>
+      <ion-button expand="block" fill="outline" class="register-btn" (click)="goToRegister()">
+        Register
+      </ion-button>
+    </div>
+  </form>
+</ion-content>
