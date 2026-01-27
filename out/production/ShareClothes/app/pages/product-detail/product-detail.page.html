@@ -1,0 +1,87 @@
+<ion-content>
+  <div class="image-header">
+    <img [src]="product?.img || 'assets/img/pantalon-japan.jpg'" alt="{{ product?.title }}" />
+    <div class="title-overlay">
+      <h1>{{ product?.title || 'Pantalon Japan' }}</h1>
+    </div>
+  </div>
+
+  <div class="action-section">
+    <div class="info-chips">
+      <ion-chip color="light" class="location-chip">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-label>{{ product?.location || 'Sevilla, España' }}</ion-label>
+      </ion-chip>
+
+      <ion-chip color="light" class="size-chip">
+        <ion-icon name="resize-outline"></ion-icon>
+        <ion-label>{{ product?.size || 'Talla L' }}</ion-label>
+      </ion-chip>
+    </div>
+
+    <div class="action-buttons">
+      <ion-button fill="clear" color="danger" (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" color="dark" (click)="addToCart(product)">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="description">
+    <p>
+      <strong>
+        <span class="tag-intercambio">Intercambio</span> -
+        <span class="tag-alquiler">Alquiler desde 18,00€</span>
+      </strong><br />
+      {{ product?.title || '' }} marca <b>SHEIN</b>, tejido de algodón y lino, color crema con estampado floral negro.
+      Cómodo y estilizado.
+    </p>
+  </div>
+
+  <ion-card class="seller-card">
+    <ion-item lines="none">
+      <!-- Click en avatar o nombre redirige -->
+      <ion-avatar slot="start" (click)="goToUserProfile()" style="cursor: pointer;">
+        <img src="assets/img/perfil-usuario.jpg" />
+      </ion-avatar>
+
+      <ion-label (click)="goToUserProfile()" style="cursor: pointer;">
+        <h2>Julia Ahki</h2>
+        <p>Más productos de Julia Ahki</p>
+      </ion-label>
+
+      <!-- Botones independientes -->
+      <ion-button fill="outline" color="warning" size="small" class="follow-btn">Follow</ion-button>
+      <ion-button fill="solid" color="success" size="small" class="msg-btn">Message</ion-button>
+    </ion-item>
+
+    <ion-list>
+      <ion-item lines="full">
+        <ion-thumbnail slot="start">
+          <img src="assets/img/vestido_verde.webp" />
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Vestido Verde</h3>
+          <p>Intercambio o alquiler · 12,00€</p>
+        </ion-label>
+        <ion-icon slot="end" name="star-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img src="assets/img/camiseta_m&m.png" />
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Camiseta M&M</h3>
+          <p>Intercambio o alquiler · 27,50€</p>
+        </ion-label>
+        <ion-icon slot="end" name="star-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

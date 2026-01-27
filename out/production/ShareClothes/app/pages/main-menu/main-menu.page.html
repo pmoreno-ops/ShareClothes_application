@@ -1,0 +1,51 @@
+<app-api-header-nav-bar></app-api-header-nav-bar>
+
+<ion-content class="ion-padding">
+
+  <!-- Segmento de categorías con evento de cambio -->
+  <ion-segment value="generos" class="category-segment" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="hombre">
+      <ion-label>Hombre</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="mujer" checked>
+      <ion-label>Mujer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="niños">
+      <ion-label>Niños</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Grid de productos filtrados -->
+  <ion-grid class="product-grid">
+    <ion-row>
+      <ion-col
+        size="4"
+        class="product-item"
+        *ngFor="let item of filteredItems"
+        (click)="goToProductDetail(item)">
+
+        <!-- Contenedor de imagen -->
+        <div class="image-container">
+          <img [src]="item.img" [alt]="item.title">
+        </div>
+
+          <!-- Icono de me gusta y Nombre del Producto -->
+        <div class="product-header">
+          <p class="product-name">{{ item.title }}</p>
+          <ion-icon
+            [name]="item.liked ? 'heart' : 'heart-outline'"
+            [class.liked]="item.liked"
+            color="danger"
+            class="heart-icon"
+            (click)="toggleLike(item); $event.stopPropagation()">
+          </ion-icon>
+        </div>
+
+        <!-- Información del producto -->
+        <p class="product-time">Añadido hace {{ item.time }}.</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

@@ -124,4 +124,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/saved/saved.page').then((m) => m.SavedPage),
   },
+
+  {
+    path: 'add',
+    loadComponent: () =>
+      import('./pages/add-product/add-product.page').then(
+        (m) => m.AddProductPage
+      ),
+  },
+
 ];

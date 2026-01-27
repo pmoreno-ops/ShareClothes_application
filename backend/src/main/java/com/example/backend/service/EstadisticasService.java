@@ -14,6 +14,7 @@ public class EstadisticasService {
 
 
     public List<Object[]> top5PrendasPopulares() {
-        return productoRepository.findTop5PrendasPopulares();
+        List<Object[]> top = productoRepository.findTop5PrendasPopulares();
+        return top.size() > 5 ? top.subList(0, 5) : top;
     }
 }

@@ -1,60 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RopaService } from '../../Servicio/ropa-service';
 import {
-  IonBackButton,
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonTitle,
-  IonToolbar
+  IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon,
+  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonThumbnail, IonBackButton
 } from '@ionic/angular/standalone';
-import { ApiFooterNavBarComponent } from "../../components/api-footer-nav-bar/api-footer-nav-bar.component";
-import { Router } from "@angular/router";
+import { ApiFooterNavBarComponent } from '../../components/api-footer-nav-bar/api-footer-nav-bar.component';
 
 interface WardrobeItem {
-  name: string;
-  image: string;
+  id: number;
+  titulo: string;
+  descripcion: string;
+  categoria: string;
+  marca: string;
+  imagenPrincipal: string;
+  talla?: string;
 }
 
 @Component({
   selector: 'app-wardrobe',
+  standalone: true,
   templateUrl: './wardrobe.page.html',
   styleUrls: ['./wardrobe.page.scss'],
-  standalone: true,
   imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    IonButtons,
-    IonButton,
-    IonIcon,
-    ApiFooterNavBarComponent,
-    IonBackButton
+    CommonModule, FormsModule, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons,
+    IonButton, IonIcon, IonBackButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
+    IonThumbnail, ApiFooterNavBarComponent
   ]
 })
 export class WardrobePage implements OnInit {
+  private ropaService = inject(RopaService);
+  private router = inject(Router);
 
-  wardrobeItems: WardrobeItem[] = [
-    { name: 'Chaqueta Vintage', image: 'assets/img/chaqueta_Vintage.jpg' },
-    { name: 'Uptempo', image: 'assets/img/uptempo_1.jpg' },
-    { name: 'Camiseta Grizzlies', image: 'assets/img/cami_grizzlies.jpg' },
-    { name: 'Pantalón Kaki', image: 'assets/img/pantalon_Kaki.jpeg' },
-    { name: 'Gorra LA', image: 'assets/img/gorraLA.jpg' },
-  ];
+  wardrobeItems: WardrobeItem[] = [];
 
-  constructor(private router: Router) { }
+  ngOnInit() {
+    this.cargarProductos();
+  }
 
-  ngOnInit() { }
+  cargarProductos() {
+    this.ropaService.consultarRopa().subscribe({
+      next: (res: any[]) => {
+        this.wardrobeItems = res.map(item => ({
+          id: item.id,
+          titulo: item.titulo,
+          descripcion: item.descripcion,
+          categoria: item.categoria,
+          marca: item.marca,
+          imagenPrincipal: item.imagenPrincipal,
+          talla: item.talla
+        }));
+        console.log('Productos cargados:', this.wardrobeItems);
+      },
+      error: (err) => console.error('Error al cargar productos:', err)
+    });
+  }
 
-  // Se dispara al hacer click en una tarjeta
   onItemClick(item: WardrobeItem) {
-    console.log('Tarjeta clicada:', item);
-    this.router.navigate(['/product-detail'], { state: { product: item } });
+    this.router.navigate(['/product-detail'], { state: { product: item } }).then(() => {});
   }
 }

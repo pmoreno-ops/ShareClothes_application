@@ -1,0 +1,73 @@
+<ion-content class="profile-page">
+
+  <!-- HEADER -->
+  <div class="profile-header">
+    <ion-avatar class="profile-avatar">
+      <img src="assets/img/perfil-usuario.jpg" alt="Julia Ahki" />
+    </ion-avatar>
+    <h2 class="user-name">Julia Ahki</h2>
+    <p class="user-location">Sevilla, Spain</p>
+
+    <div class="rating">
+      <ion-icon name="star"></ion-icon>
+      <span>5.5</span>
+    </div>
+
+    <div class="profile-actions">
+      <ion-button fill="solid"  class="follow-btn">
+        <ion-icon name="add"></ion-icon>
+        Follow
+      </ion-button>
+      <ion-button fill="solid"  class="message-btn" (click)="goToChat()">
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+        Message
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <ion-grid class="gallery">
+    <ion-row>
+      <ion-col size="12">
+        <ion-img src="assets/img/moda-ropa.jpg" class="moda-ropa"></ion-img>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-img src="assets/img/pack_flora.jpg"></ion-img>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-img src="assets/img/pantalonB.jpg"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- REVIEWS -->
+  <ion-list class="reviews-list">
+    <ion-list-header>
+      <ion-label>Reviews</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let r of reviews">
+      <ion-avatar slot="start">
+        <img [src]="r.avatar" />
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ r.name }}</h3>
+        <p class="excerpt">{{ r.excerpt }}</p>
+        <p class="time">{{ r.time }}</p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Para verificar que el array se carga -->
+    <ion-item *ngIf="!reviews || reviews.length === 0">
+      <ion-label color="medium">No hay reseñas disponibles</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <div class="tabbar-spacer"></div>
+
+</ion-content>
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

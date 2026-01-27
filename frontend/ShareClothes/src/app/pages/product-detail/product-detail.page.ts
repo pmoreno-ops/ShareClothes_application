@@ -1,84 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import {
   IonContent,
   IonButton,
   IonIcon,
-  IonChip,
-  IonLabel,
-  IonAvatar,
+  IonInput,
   IonItem,
-  IonList,
-  IonThumbnail,
-  IonCard
+  IonLabel
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { ApiFooterNavBarComponent } from '../../components/api-footer-nav-bar/api-footer-nav-bar.component';
+import { RopaService } from '../../Servicio/ropa-service';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
   templateUrl: './product-detail.page.html',
   styleUrls: ['./product-detail.page.scss'],
-  imports: [
-    CommonModule,
-    IonContent,
-    IonButton,
-    IonIcon,
-    IonChip,
-    IonLabel,
-    IonAvatar,
-    IonItem,
-    IonList,
-    IonThumbnail,
-    IonCard,
-    ApiFooterNavBarComponent
-  ]
+  imports: [CommonModule, FormsModule, IonContent, IonButton, IonIcon, IonInput, IonItem, IonLabel, ApiFooterNavBarComponent]
 })
 export class ProductDetailPage implements OnInit {
+  private router = inject(Router);
+  private productService = inject(RopaService);
+
   product: any;
   isFavorite = false;
 
-  constructor(private router: Router) {}
-
   ngOnInit() {
-    const nav = this.router.getCurrentNavigation();
-    if (nav?.extras?.state && nav.extras.state['product']) {
-      this.product = nav.extras.state['product'];
-      if (!this.product.sellerId) {
-        this.product.sellerId = 'julia-ahki-123';
-      }
+    const state = history.state;
+    if (state && state.product) {
+      this.product = state.product;
     } else {
       this.product = {
-        title: 'Pantalon Japan',
-        img: 'assets/img/pantalon-japan.jpg',
-        time: '3h',
-        category: 'Moda',
-        location: 'Sevilla, España',
-        size: 'Talla L',
-        sellerId: 'julia-ahki-123'
+        titulo: 'Pantalon Japan',
+        descripcion: '',
+        categoria: '',
+        genero: '',
+        estado: '',
+        marca: '',
+        talla: '',
+        color: '',
+        user_id: 1
       };
     }
-      // Recupera los datos enviados desde wardrobe
-      const state = history.state;
-      if (state && state.product) {
-        this.product = state.product;
-        console.log('Producto recibido:', this.product);
-      }
   }
 
   toggleFavorite() {
     this.isFavorite = !this.isFavorite;
   }
 
-  addToCart(product: any) {
-    console.log('Producto añadido al carrito:', product);
+  updateProduct() {
+    if (!this.product.id) {
+      console.error('No se puede actualizar: producto sin ID');
+      return;
+    }
+
+    this.productService.actualizarRopa(this.product.id, this.product).subscribe({
+      next: (res) => {
+        console.log('Producto actualizado:', res);
+        this.router.navigate(['/wardrobe'], { state: { refresh: true } });
+      },
+      error: (err) => console.error('Error al actualizar producto:', err)
+    });
   }
-
-
-  goToUserProfile() {
-    this.router.navigate(['/user-profile']);
-  }
-
-
 }

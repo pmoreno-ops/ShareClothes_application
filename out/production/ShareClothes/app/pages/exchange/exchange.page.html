@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- Botón Back -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Título -->
+    <ion-title>Mis Intercambios</ion-title>
+
+    <!-- Botones de la derecha -->
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENIDO -->
+<ion-content>
+  <div class="grid">
+    <button
+      class="item"
+      *ngFor="let item of exchangeItems"
+      (click)="onItemClick(item)">
+      <img [src]="item.image" alt="{{ item.name }}" />
+      <div class="item-name">{{ item.name }}</div>
+    </button>
+  </div>
+</ion-content>
+
+<app-api-footer-nav-bar></app-api-footer-nav-bar>

@@ -34,7 +34,7 @@ public class Usuarios {
     private String passwordHash;
 
     @Transient
-    private String password; // <-- solo para recibir la contraseña temporalmente
+    private String password;
 
     @Column(nullable = false)
     private String telefono;
@@ -42,8 +42,8 @@ public class Usuarios {
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
 
-    // RELACIONES
 
+    // RELACIONES
     @OneToMany(mappedBy = "usuario")
     private Set<Publicacion> publicaciones;
 

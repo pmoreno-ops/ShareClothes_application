@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Mensajes
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="mensajes-content">
+  <div class="chat-list">
+    <div
+      class="chat-item"
+      *ngFor="let chat of chats"
+      (click)="abrirChat(chat.id)"
+    >
+      <img [src]="chat.imagen" class="avatar" />
+
+      <div class="chat-info">
+        <div class="chat-header">
+          <h3>{{ chat.nombre }}</h3>
+          <span class="hora">{{ chat.hora }}</span>
+        </div>
+
+        <div class="mensaje-previo">
+          {{ chat.mensaje }}
+        </div>
+      </div>
+
+      <div class="contador" *ngIf="chat.noLeidos > 0">
+        {{ chat.noLeidos }}
+      </div>
+    </div>
+  </div>
+</ion-content>

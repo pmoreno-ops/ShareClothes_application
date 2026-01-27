@@ -1,43 +1,27 @@
 <ion-header>
   <ion-toolbar>
-
-    <!-- Botón Back -->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-
-    <!-- Título -->
     <ion-title>Mi Guardarropa</ion-title>
-
-    <!-- Botones de la derecha -->
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
-<!-- CONTENIDO -->
-<ion-content>
+<ion-content class="ion-padding">
   <div class="grid">
-    <!-- Tarjetas de imágenes clicables con nombre -->
-    <button
-      class="item"
-      *ngFor="let item of wardrobeItems"
-      (click)="onItemClick(item)">
-      <img [src]="item.image" alt="{{ item.name }}" />
-      <div class="item-name">{{ item.name }}</div>
-    </button>
+    <ion-card *ngFor="let item of wardrobeItems" (click)="onItemClick(item)">
+      <ion-thumbnail slot="start">
+        <img [src]="item.imagenPrincipal || 'assets/img/pantalon-japan.jpg'" alt="{{ item.titulo }}" />
+      </ion-thumbnail>
+      <ion-card-header>
+        <ion-card-title>{{ item.titulo }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ item.categoria || 'Categoría desconocida' }}</p>
+        <p>{{ item.talla || 'Talla desconocida' }}</p>
+      </ion-card-content>
+    </ion-card>
   </div>
+
+  <app-api-footer-nav-bar></app-api-footer-nav-bar>
 </ion-content>
-
-
-
-
-
-<app-api-footer-nav-bar></app-api-footer-nav-bar>

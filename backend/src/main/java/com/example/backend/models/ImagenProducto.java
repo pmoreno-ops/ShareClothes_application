@@ -21,7 +21,7 @@ public class ImagenProducto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")
-    private Productos producto; // NO incluir en equals/hashCode
+    private Productos producto;
 
     @Column(nullable = false)
     private String url;

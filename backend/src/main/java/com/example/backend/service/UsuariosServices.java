@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import com.example.backend.exception.UsuarioNoEncontradoException;
 import com.example.backend.models.Usuarios;
 import com.example.backend.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class UsuariosServices {
 
     private final UsuariosRepository usuariosRepository;
+    
 
     @Autowired
     public UsuariosServices(UsuariosRepository usuariosRepository) {
@@ -31,11 +33,24 @@ public class UsuariosServices {
         return usuariosRepository.findAll();
     }
 
-    // METODO ACTUALIZADO (sin romper nada)
+
     public Usuarios guardar(Usuarios usuario) {
 
         if (usuario.getPassword() == null || usuario.getPassword().isBlank()) {
             throw new IllegalArgumentException("El campo password es obligatorio");
+        }
+
+        if (usuario.getEmail() == null || usuario.getEmail().isEmpty()) {
+            throw new IllegalArgumentException("El campo email es obligatorio");
+        }
+
+        //Validar campos obligatorios
+        if (usuario.getNombre() == null || usuario.getNombre().isBlank()) {
+            usuario.setNombre("");
+            usuario.setApellido("");
+            usuario.setTelefono("");
+            usuario.setFechaRegistro(null);
+            return usuario;
         }
 
         //Validar email duplicado
@@ -52,7 +67,8 @@ public class UsuariosServices {
 
     // Obtener usuario por ID
     public Optional<Usuarios> obtenerPorId(Long id) {
-        return usuariosRepository.findById(id);
+        return Optional.ofNullable(usuariosRepository.findById(id)
+                .orElseThrow(() -> new UsuarioNoEncontradoException("Usuario con ID " + id + " no encontrado")));
     }
 
     // Actualizar un usuario existente

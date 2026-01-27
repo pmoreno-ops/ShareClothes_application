@@ -1,0 +1,216 @@
+ion-content {
+  --background: #fff;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  --padding-bottom: 4rem;
+}
+
+.image-header {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    object-position: center;
+    background-color: #000;
+    margin: 0 auto;
+  }
+
+  .title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    padding: 16px 20px;
+
+    h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+}
+
+.action-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 6px 16px;
+
+  .info-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .location-chip {
+    --background: #f2f2f2;
+    ion-icon {
+      color: #ff8c3a;
+      margin-right: 4px;
+      font-size: 16px;
+    }
+    ion-label {
+      color: #070707;
+      font-weight: 500;
+      font-size: 13px;
+    }
+  }
+
+  .size-chip {
+    --background: #f2f2f2;
+    ion-icon {
+      color: #28a745;
+      margin-right: 4px;
+      font-size: 16px;
+    }
+    ion-label {
+      color: #070707;
+      font-weight: 500;
+      font-size: 13px;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    ion-button {
+      --background: transparent;
+      --padding-start: 4px;
+      --padding-end: 4px;
+      --ripple-color: transparent;
+
+      ion-icon {
+        font-size: 22px;
+      }
+
+      &[color='danger'] ion-icon {
+        color: #ff4d4f;
+        transition: transform 0.2s ease;
+      }
+
+      &[color='danger']:active ion-icon {
+        transform: scale(1.2);
+      }
+
+      &[color='dark'] ion-icon {
+        color: #fa5903;
+      }
+    }
+  }
+}
+
+.description {
+  padding: 8px 16px 16px 16px;
+  margin-top: 0;
+  font-size: 14px;
+  color: #070707;
+  line-height: 1.6;
+
+  strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .tag-intercambio {
+    color: #ff8c3a;
+    font-weight: 700;
+  }
+
+  .tag-alquiler {
+    color: #28a745;
+    font-weight: 700;
+  }
+
+  b {
+    color: #070707;
+  }
+}
+
+.seller-card {
+  margin: 12px 16px 20px 16px;
+  border-radius: 14px;
+  background-color: #222;
+  box-shadow: 0 2px 10px rgba(7, 7, 7, 0.8);
+
+  ion-item {
+    --background: transparent;
+    --padding-start: 10px;
+    --inner-padding-end: 10px;
+    --min-height: 60px;
+  }
+
+  ion-label {
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      color: #f6f6f5;
+    }
+
+    p {
+      font-size: 12px;
+      color: #ffffff;
+      margin-top: 2px;
+    }
+  }
+
+  .follow-btn {
+    --border-color: #f5a623;
+    --color: #f5a623;
+    font-size: 12px;
+    text-transform: none;
+    margin-right: 6px;
+  }
+
+  .msg-btn {
+    --background: #32c96f;
+    font-size: 12px;
+    text-transform: none;
+  }
+
+  ion-list {
+    margin-top: 6px;
+
+    ion-item {
+      --background: #fff;
+
+      ion-thumbnail {
+        width: 58px;
+        height: 58px;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      ion-label {
+        h3 {
+          font-size: 14px;
+          font-weight: 600;
+          color: #fa5903;
+          margin: 0;
+        }
+
+        p {
+          font-size: 12px;
+          color: #070707;
+          margin-top: 2px;
+        }
+      }
+
+      ion-icon {
+        color: #f4b400;
+        font-size: 18px;
+      }
+    }
+  }
+}
