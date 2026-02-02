@@ -1,15 +1,21 @@
-# Usar OpenJDK 17
 FROM openjdk:17-jdk-slim
 
-# Directorio de la app
 WORKDIR /app
 
-# Copiar pom.xml y código
+# Copiar Maven Wrapper
+COPY mvnw .
+COPY .mvn .mvn
+
+# Copiar proyecto
 COPY pom.xml .
 COPY src ./src
 
-# Construir la app
+# Dar permisos y construir
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-# Ejecutar la app
+# Exponer puerto (opcional)
+EXPOSE 8080
+
+# Ejecutar app
 CMD ["java", "-jar", "target/ShareClothes-0.0.1-SNAPSHOT.jar"]
