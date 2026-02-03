@@ -21,7 +21,7 @@ export interface Producto {
 })
 export class RopaService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://shareclothes-application.onrender.com';
+  private apiUrl = 'https://shareclothes-backend.onrender.com';
 
   crearRopa(product: Producto): Observable<any> {
     return this.http.post(this.apiUrl, product);
